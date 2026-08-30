@@ -129,7 +129,11 @@ namespace polyester_virus
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (closing) return;
+            if (closing)
+            {
+                base.OnFormClosing(e);
+                return;
+            }
             e.Cancel = true;
             base.OnFormClosing(e);
         }

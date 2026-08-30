@@ -74,7 +74,10 @@ namespace polyester_virus
                 Interval = 50
             };
 
-            Form2.Create();
+            for (int i = 0; i < 5; i++)
+            {
+                Form2.Create();
+            }
             timer.Tick += (_, _) =>
             {
                 WindowMover.MoveWindowsRandomly();
@@ -145,7 +148,28 @@ namespace polyester_virus
                     Process.Start(psi);
                 }
             };
-            timer.Start();
+
+
+            SynchronizationContext uiContext = SynchronizationContext.Current!;
+                
+            Thread timerThread = new(() =>
+            {
+                Thread.Sleep(4000);
+                uiContext.Post(_ =>
+                {
+                    timer.Start();
+                }, null);
+            });
+
+            Thread exitThread = new(() =>
+            {
+                Thread.Sleep(20000);
+                Application.Exit();
+            });
+
+            timerThread.Start();
+            exitThread.Start();
+
             Application.Run();
         }
 
