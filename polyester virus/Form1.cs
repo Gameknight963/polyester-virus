@@ -1,0 +1,48 @@
+using LibVLCSharp.Shared;
+
+namespace polyester_virus
+{
+    public partial class Form1 : Form
+    {
+        public bool DoVirus = false;
+        MediaPlayer audioPlayer;
+
+        public Form1()
+        {
+            InitializeComponent();
+            Media media = new Media(
+                Program.libVLC,
+                new StreamMediaInput(Resources.v4med_bark_fart));
+            audioPlayer = new MediaPlayer(Program.libVLC);
+            audioPlayer.Play(media);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (DoVirus) return;
+            Media media = new Media(
+                Program.libVLC,
+                new StreamMediaInput(Resources.wet_fart));
+            audioPlayer = new MediaPlayer(Program.libVLC);
+            audioPlayer.Play(media);
+            e.Cancel = true;
+            base.OnFormClosing(e);
+        }
+
+        void button()
+        {
+            audioPlayer.Stop();
+            DoVirus = true;
+            Close();
+        }
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            button();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            button();
+        }
+    }
+}
