@@ -46,7 +46,9 @@ namespace polyester_virus
             int y = Random.Shared.Next(area.Top, area.Bottom - Height);
             Location = new Point(x, y);
 
-            Form2 target = instances[Random.Shared.Next(instances.Count)];
+            target = instances[Random.Shared.Next(instances.Count)] == this
+                ? null
+                : instances[Random.Shared.Next(instances.Count)];
 
             movementTimer.Tick += MovementTimer_Tick;
             movementTimer.Start();
