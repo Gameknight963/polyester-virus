@@ -6,7 +6,9 @@ This program can kill random processes and shut down your computer, run it only 
 Other than that it should not have any side effects
 
 ## Usage
-Download the [latest release](https://github.com/Gameknight963/polyester-virus/releases/latest) from Releases and run it
+Download the [latest release](https://github.com/Gameknight963/polyester-virus/releases/latest) from Releases and run it.
+
+Requires .NET 10. You will be prompted to install it
 
 [Direct Download (x64)](https://github.com/Gameknight963/polyester-virus/releases/download/v1.0.0/polyester.virus-x64.zip)
 <br>
