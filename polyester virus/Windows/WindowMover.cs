@@ -27,6 +27,11 @@ namespace polyester_virus.Windows
                 nint hwnd,
                 nint hwndInsertAfter,
                 int X, int Y, int cx, int cy, uint uFlags);
+
+            [LibraryImport("user32.dll")]
+            public static partial uint GetWindowThreadProcessId(
+                nint hwnd,
+                out uint lpdwProcessId);
         }
 
         internal delegate bool EnumWindowsProc(nint hwnd, nint lParam);
@@ -35,7 +40,14 @@ namespace polyester_virus.Windows
         const uint SWP_NOZORDER = 0x0004;
         const uint SWP_NOACTIVATE = 0x0010;
 
-        public static void MoveWindowsRandomly()
+        public enum Options
+        {
+            All,
+            Self,
+            IgnoreSelf
+        }
+
+        public static void MoveWindowsRandomly(Options scope)
         {
             List<(nint Handle, int Width, int Height)> windows = new();
 
@@ -43,6 +55,19 @@ namespace polyester_virus.Windows
             {
                 if (!Native.IsWindowVisible(hwnd))
                     return true;
+
+                if (scope != Options.All)
+                {
+                    Native.GetWindowThreadProcessId(hwnd, out uint processId);
+
+                    bool isSelf = processId == Environment.ProcessId;
+
+                    if (scope == Options.Self && !isSelf)
+                        return true;
+
+                    if (scope == Options.IgnoreSelf && isSelf)
+                        return true;
+                }
 
                 if (!Native.GetWindowRect(hwnd, out Rect rect))
                     return true;

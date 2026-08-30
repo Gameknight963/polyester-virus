@@ -80,8 +80,6 @@ namespace polyester_virus
             }
             timer.Tick += (_, _) =>
             {
-                WindowMover.MoveWindowsRandomly();
-
                 Form2.Create();
                 if (Random.Shared.Next(3) == 1)
                 {
@@ -89,9 +87,14 @@ namespace polyester_virus
                         MessageBoxButtons.OK, MessageBoxIcon.Error, 
                         true, true);
                 }
-                if (Random.Shared.Next(3) == 1)
+                if (Random.Shared.Next(2) == 1)
                 {
-                    WindowMover.MoveWindowsRandomly();
+                    WindowMover.Options options = 
+                    Random.Shared.Next(7) == 1 ? 
+                        WindowMover.Options.All : 
+                        WindowMover.Options.Self;
+
+                    WindowMover.MoveWindowsRandomly(options);
                 }
                 if (Random.Shared.Next(4) == 1)
                 {
