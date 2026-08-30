@@ -166,8 +166,11 @@ namespace polyester_virus
 
             Thread exitThread = new(() =>
             {
-                Thread.Sleep(20000);
-                Application.Exit();
+                Thread.Sleep(27000);
+                uiContext.Post(_ =>
+                {
+                    Environment.Exit(0);
+                }, null);
             });
 
             timerThread.Start();
