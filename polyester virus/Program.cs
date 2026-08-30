@@ -29,6 +29,7 @@ namespace polyester_virus
             if (!form1.DoVirus) return;
             form1.Dispose();
 
+            new BackgroundBlur().Show();
             System.Windows.Forms.Timer timer = new()
             {
                 Interval = 50
