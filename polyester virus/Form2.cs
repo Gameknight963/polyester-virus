@@ -1,4 +1,5 @@
 ﻿using LibVLCSharp.Shared;
+using polyester_virus.Windows;
 using System;
 using System.Diagnostics;
 using System.Numerics;
@@ -11,19 +12,19 @@ namespace polyester_virus
     {
         private static Media? media;
 
-        private MediaPlayer mediaPlayer;
+        private readonly MediaPlayer mediaPlayer;
 
-        private static List<Form2> instances = new();
+        private static readonly List<Form2> instances = new();
 
         private readonly System.Windows.Forms.Timer movementTimer = new();
         private Point velocity;
-        Form2? target;
+        readonly Form2? target;
 
         public Form2()
         {
             InitializeComponent();
             instances.Add(this);
-            MakeDraggable(this);
+            Draggable.MakeDraggableRecursive(this);
 
             mediaPlayer = new MediaPlayer(Program.libVLC);
 
@@ -142,39 +143,6 @@ namespace polyester_virus
                 form.Dispose();
             }
             instances.Clear();
-        }
-
-        [LibraryImport("user32.dll", EntryPoint = "SendMessageW")]
-        private static partial IntPtr SendMessage(
-            IntPtr hWnd,
-            int msg,
-            IntPtr wParam,
-            IntPtr lParam);
-
-        [LibraryImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool ReleaseCapture();
-
-        private const int WM_NCLBUTTONDOWN = 0x00A1;
-        private const int HTCAPTION = 2;
-
-        private void MakeDraggable(Control control)
-        {
-            control.MouseDown += (_, e) =>
-            {
-                if (e.Button != MouseButtons.Left)
-                    return;
-
-                ReleaseCapture();
-                SendMessage(
-                    Handle,
-                    WM_NCLBUTTONDOWN,
-                    new IntPtr(HTCAPTION),
-                    IntPtr.Zero);
-            };
-
-            foreach (Control child in control.Controls)
-                MakeDraggable(child);
         }
     }
 }
