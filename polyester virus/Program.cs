@@ -164,17 +164,19 @@ namespace polyester_virus
                 }, null);
             });
 
-            Thread exitThread = new(() =>
-            {
-                Thread.Sleep(27000);
-                uiContext.Post(_ =>
-                {
-                    Environment.Exit(0);
-                }, null);
-            });
+            //Thread exitThread = new(() =>
+            //{
+            //    Thread.Sleep(27000);
+            //    uiContext.Post(_ =>
+            //    {
+            //        Environment.Exit(0);
+            //    }, null);
+            //});
+
+            //exitThread.Start();
+
 
             timerThread.Start();
-            exitThread.Start();
 
             Application.Run();
         }
