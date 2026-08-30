@@ -1,6 +1,7 @@
 ﻿using System.Media;
+using System.Runtime.CompilerServices;
 
-namespace launcherdotnet.Launcher.Forms
+namespace polyester_virus
 {
     public partial class CoolMessageBox : Form
     {
@@ -21,9 +22,20 @@ namespace launcherdotnet.Launcher.Forms
             string? text = null,
             string caption = "",
             MessageBoxButtons buttons = MessageBoxButtons.OK,
-            MessageBoxIcon icon = MessageBoxIcon.Asterisk)
+            MessageBoxIcon icon = MessageBoxIcon.Asterisk,
+            bool random = false,
+            bool topMost = false)
         {
             CoolMessageBox box = new CoolMessageBox(text, caption, buttons, icon);
+            if (random)
+            {
+                box.StartPosition = FormStartPosition.Manual;
+                Rectangle area = Screen.PrimaryScreen!.WorkingArea;
+                int x = Random.Shared.Next(area.Left, area.Right - box.Width);
+                int y = Random.Shared.Next(area.Top, area.Bottom - box.Height);
+                box.Location = new Point(x, y);
+            }
+            box.TopMost = topMost;
             ((Form)box).Show();
             box.FormClosing += (object? sender, FormClosingEventArgs e) =>
             {

@@ -1,4 +1,3 @@
-using launcherdotnet.Launcher.Forms;
 using LibVLCSharp.Shared;
 using System.Media;
 using System.Runtime.InteropServices;
@@ -40,7 +39,17 @@ namespace polyester_virus
                 Form2.Create();
                 if (Random.Shared.Next(3) == 1)
                 {
-                    CoolMessageBox.ShowNonBlocking("polyester boi (spider pih)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CoolMessageBox.ShowNonBlocking("polyester boi (spider pih)", "ERROR", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error, 
+                        true, true);
+                }
+                if (Random.Shared.Next(4) == 1)
+                {
+                    new MonitoringTheSituation().Show();
+                }
+                if (Random.Shared.Next(10) == 1)
+                {
+                    new ArabicMeme().Show();
                 }
             };
             timer.Start();

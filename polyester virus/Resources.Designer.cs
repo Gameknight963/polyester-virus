@@ -63,6 +63,16 @@ namespace polyester_virus {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arabic_meme {
+            get {
+                object obj = ResourceManager.GetObject("arabic meme", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap polyester {
             get {
                 object obj = ResourceManager.GetObject("polyester", resourceCulture);

@@ -117,20 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="arabic meme" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\arabic meme.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="polyester" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\polyester.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="polyester_video" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\polyester_video.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="v4med bark fart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\v4med bark fart.mp3;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="wet fart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Wet Fart Meme - Sound Effect (HD) [TubeRipper.com].mp3;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

@@ -1,4 +1,4 @@
-﻿namespace launcherdotnet.Launcher.Forms
+﻿namespace polyester_virus
 {
     partial class CoolMessageBox
     {

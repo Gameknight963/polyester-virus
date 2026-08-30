@@ -95,7 +95,7 @@ namespace polyester_virus
         public static Form2 Create()
         {
             Form2 form = new();
-
+            form.TopMost = true;
             SynchronizationContext context = SynchronizationContext.Current
                 ?? throw new InvalidOperationException("No synchronization context (wtf)");
 
