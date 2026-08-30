@@ -25,7 +25,16 @@ namespace polyester_virus
             "CRITICAL ERROR OH SHIT\n\nPlease remain calm",
             "WARNING\n\nThe number of active polyester is no longer mathematically reasonable",
             "UNHANDLED EXCEPTION\n\nSomething went terribly wrong or sum ✌",
-            "SYSTEM ALERT\n\nAn unknown entity has requested permission to do sum bs"
+            "SHIT EXCEPTION\n\nWindows are moving unexpectedly",
+            "SYSTEM ALERT\n\nAn unknown entity has requested permission to do sum bs",
+            "严重错误\n\n检测到未知窗口。\n系统状态：非常可疑。",
+            "系统警告\n\n窗口数量已超过合理范围。\n请保持冷静。",
+            "خطأ حرج في النظام\n\nتم اكتشاف نافذة غير معروفة.\nحالة النظام: غير مستقرة.",
+            "تحذير أمني\n\nعدد النوافذ المفتوحة تجاوز الحد المسموح به.",
+            "严重警告\n\n窗口正在自行移动。\n这是正常现象……大概。",
+            "إنذار النظام\n\nالنوافذ تتحرك بشكل غير متوقع.\nلا داعي للذعر.",
+            "未处理异常\n\n系统不知道发生了什么。",
+            "استثناء غير معالج\n\nالنظام لا يعرف ماذا حدث.",
         };
 
         readonly static string[] captions =
@@ -36,7 +45,11 @@ namespace polyester_virus
             "SYSTEM WARNING",
             "SECURITY ALERT",
             "Application Error",
-            "CRITICAL FAILURE"
+            "CRITICAL FAILURE",
+            "إنذار أمني",
+            "系统警告",
+            "系统严重错误",
+            "خطأ حرج",
         };
 
         /// <summary>
