@@ -1,4 +1,4 @@
-using launcherdotnet.Windows;
+﻿using launcherdotnet.Windows;
 using LibVLCSharp.Shared;
 using polyester_virus.Windows;
 
@@ -21,6 +21,7 @@ namespace polyester_virus
                 new StreamMediaInput(Resources.v4med_bark_fart));
             audioPlayer = new MediaPlayer(Program.libVLC);
             audioPlayer.Play(media);
+            Text = "spider polyseter man so tuff 🥶🥶";
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
