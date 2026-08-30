@@ -1,10 +1,7 @@
 ﻿using LibVLCSharp.Shared;
 using polyester_virus.Windows;
 using System.Diagnostics;
-using System.Media;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace polyester_virus
 {
@@ -17,16 +14,16 @@ namespace polyester_virus
 
         readonly static string[] messages =
         {
-            "CRITICAL: Reality integrity check failed.\n\nUnknown process detected inside the simulation",
+            "CRITICAL (FUCK): Reality integrity check failed.\n\nUnknown process detected inside the simulation",
             "FATAL EXCEPTION 0xDEAD6767\n\nThe system has become concerned",
             "WARNING: Too many windows detected\n\nRecommended action to take a shit",
-            "CRITICAL SYSTEM ERROR\n\nWindow population has exceeded recommended levels",
-            "SECURITY ALERT\n\nAn unauthorized amount of silliness has been detected.",
+            "CRITICAL SYSTEM ERROR\n\nSlop population has exceeded recommended levels",
+            "SECURITY ALERT\n\nAn unauthorized amount of shit has been detected.",
             "FATAL ERROR\n\nThe computer has run out of fucks to give",
             "WARNING: This is probably fine actually",
             "SYSTEM FAILURE\n\nError: Everything is going exactly as planned.",
             "CRITICAL ERROR OH SHIT\n\nPlease remain calm",
-            "WARNING\n\nThe number of active windows is no longer mathematically reasonable",
+            "WARNING\n\nThe number of active polyester is no longer mathematically reasonable",
             "UNHANDLED EXCEPTION\n\nSomething went terribly wrong or sum ✌",
             "SYSTEM ALERT\n\nAn unknown entity has requested permission to do sum bs"
         };
