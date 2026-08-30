@@ -1,3 +1,4 @@
+using launcherdotnet.Windows;
 using LibVLCSharp.Shared;
 
 namespace polyester_virus
@@ -10,6 +11,9 @@ namespace polyester_virus
         public Form1()
         {
             InitializeComponent();
+            BackColor = Color.Black;
+            DwmApi.SetAccentState(Handle, AccentState.ACCENT_ENABLE_BLURBEHIND, 0x27950366);
+            DwmApi.ExtendFrame(Handle);
             Media media = new Media(
                 Program.libVLC,
                 new StreamMediaInput(Resources.v4med_bark_fart));

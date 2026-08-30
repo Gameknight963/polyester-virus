@@ -36,6 +36,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button1.Location = new Point(12, 373);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
@@ -46,6 +47,8 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Resources.polyester;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Location = new Point(12, 12);
@@ -56,6 +59,7 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button2.Location = new Point(93, 373);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);

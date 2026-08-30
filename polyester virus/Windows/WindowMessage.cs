@@ -1,4 +1,4 @@
-﻿namespace polyester_virus
+﻿namespace polyester_virus.Windows
 {
     public enum WindowMessage : uint
     {
